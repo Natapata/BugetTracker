@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState } from 'react'
-import Logo from './Logo'
+import Logo, { LogoMobile } from './Logo'
 import { usePathname } from 'next/navigation';
 import Link  from 'next/link';
 import { cn } from '@/lib/utils';
 import { Button, buttonVariants } from './ui/button';
 import { UserButton } from '@clerk/nextjs';
 import { ThemeSwitcherBtn } from './ThemeSwitcherBtn';
-import { Sheet, SheetTrigger } from './ui/sheet';
+import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { Menu } from 'lucide-react';
 
 function Navbar() {
@@ -39,7 +39,23 @@ function MobilNavbar() {
                             <Menu />
                         </Button>
                     </SheetTrigger>
+                    <SheetContent className='w-[400px] sm:w-[540px]' side='left'>
+                        <Logo/>
+                        <div className="flex flex-col gap-1 pt-4">
+                            {items.map((item) => (
+                                <NavbarItem key={item.label}  link={item.link} label={item.label} 
+                                clickCallback={() => setIsOpen((prev) => !(prev))}/>
+                            ))}
+                        </div>
+                    </SheetContent>
                 </Sheet>
+                <div className="flex h-[80px] min-h-[60px] items-center gap-x-4">
+                    <LogoMobile/>
+                </div>
+                <div className="flex items-center gab-2">
+                    <ThemeSwitcherBtn/>
+                    <UserButton />
+                </div>
             </nav>
         </div>
     );
@@ -59,14 +75,14 @@ function DesktopNavbar() {
         </div>
         <div className="flex items-center gab-2">
             <ThemeSwitcherBtn/>
-            <UserButton afterSignOutUrl="/sign-in"/>
+            <UserButton />
         </div>
       </nav>
     </div>
   )
 }
 
-function NavbarItem({label, link} : { label: string, link: string}) {
+function NavbarItem({label, link, clickCallback} : { label: string, link: string, clickCallback?: () => void }) {
     const pathname = usePathname();
     const isActive = pathname === link;
 
@@ -78,6 +94,7 @@ function NavbarItem({label, link} : { label: string, link: string}) {
                     "w-full justify-start text-lg text-muted-foreground hover:text-foreground" ,
                     isActive && "text-foreground"
                 )}
+                onClick={() => {if (clickCallback) clickCallback()}}
         >
                 {label}
             </Link>
