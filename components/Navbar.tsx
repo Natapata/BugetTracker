@@ -82,7 +82,7 @@ function DesktopNavbar() {
             ))}
           </div>
         </div>
-        <div className="flex items-center gab-2">
+        <div className="flex items-center gap-2">
           <ThemeSwitcherBtn />
           <UserButton />
         </div>
