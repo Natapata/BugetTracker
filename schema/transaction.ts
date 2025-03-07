@@ -1,10 +1,10 @@
-import {date, z} from 'zod';
+import {z} from 'zod';
 
 export const CreateTransactionSchema = z.object({
     amount: z.coerce.number().positive().multipleOf(0.01),
     description: z.string().optional(),
     date: z.coerce.date(),
-    category: z.coerce.string(),
+    category: z.coerce.string().nonempty(),
     type: z.union([z.literal('income'), z.literal('expense')])
 });
 
