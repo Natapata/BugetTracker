@@ -4,6 +4,7 @@ import { currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation';
 import React from 'react'
 import CreateTransactionDialog from './_components/CreateTransactionDialog';
+import Overview from './_components/Overview';
 
 async function page() {
   const user = await currentUser();
@@ -23,7 +24,7 @@ async function page() {
 
   return (
    <div className="h-full bg-background">
-    <div className="border-b bg-card">
+    <div className="border-b bg-gray-600/10">
       <div className="container flex flex-wrap items-center justify-center gap-6 py-8">
         <p className='text-3xl font-bold'>
           Hello, {user.firstName}! 👋
@@ -40,6 +41,8 @@ async function page() {
         </div>
       </div>
     </div>
+    <div className="">
+    <Overview userSettings= {userSettings} /></div>
    </div>
   )
 }
