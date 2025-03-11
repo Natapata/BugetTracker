@@ -8,7 +8,6 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import { DateToUTCDate, GetFormatterForCurrency } from '@/lib/helpers'
 import { TransactionType } from '@/lib/types'
 import { UserSettings } from '@prisma/client'
-import { Item } from '@radix-ui/react-dropdown-menu'
 import { useQuery } from '@tanstack/react-query'
 import React, { useMemo } from 'react'
 
