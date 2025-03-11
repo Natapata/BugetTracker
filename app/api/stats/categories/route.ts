@@ -8,7 +8,7 @@ export async function GET(request: Request){
     if(!user) redirect('/sign-in');
 
     const {searchParams} = new URL(request.url);
-    const from= searchParams.get("from");
+    const from = searchParams.get("from");
     const to = searchParams.get("to");
 
     const queryParams = OverviewQuerySchema.safeParse({from, to});
