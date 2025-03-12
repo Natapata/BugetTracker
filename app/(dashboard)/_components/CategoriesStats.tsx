@@ -18,9 +18,6 @@ interface Props{
 }
 
 function CategoriesStats({from, to, userSettings}: Props){
-  console.log("@@FROM", from);
-  console.log("@@TO", to);
-
 
   const statsQuery = useQuery<GetCategoriesStatsResponseType>({
     queryKey: ["overview" , "stats", "categories", from, to],
@@ -67,7 +64,7 @@ function CategoriesCard({data, type, formatter}: {
   const total = filteredData.reduce((acc, el) => acc + (el._sum?.amount || 0), 0);
 
   return(
-    <Card className='h-80 w-full col-span-6 bg-gray-300/5'>
+    <Card className='h-80 w-full col-span-6 bg-gray-300/2'>
         <CardHeader>
           <CardTitle className='grid grid-flow-row justify-between gap-2 text-muted-foreground md:grid-flow-col'>
             {type === "income" ? "Incomes" : "Expenses"} by category

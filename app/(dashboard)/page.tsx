@@ -26,7 +26,7 @@ async function page() {
 
   return (
    <div className="h-full bg-background">
-    <div className="border-b bg-gray-600/10">
+    <div className="border-b bg-gray-600/5">
       <div className="container flex flex-wrap items-center justify-center gap-6 py-8">
         <p className='text-3xl font-bold'>
           Hello, {user.firstName}! 👋

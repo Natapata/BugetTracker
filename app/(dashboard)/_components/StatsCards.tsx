@@ -85,7 +85,7 @@ function StatCard({formatter, value, title, icon}: {
     }, [formatter]);
 
     return(
-        <Card className='flex flex-row h-24 w-full items-center gap-3 p-4 bg-gray-300/5' >
+        <Card className='flex flex-row h-24 w-full items-center gap-3 p-4 bg-gray-300/2' >
             {icon}
             <div className="flex flex-col gap-0">
                 <p className='text-muted-foreground'>{title}</p>
