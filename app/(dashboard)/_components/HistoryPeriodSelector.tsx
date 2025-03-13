@@ -1,9 +1,8 @@
 import { GetHistoryPeriodsType } from '@/app/api/history-periods/route';
 import SkeletonWrapper from '@/components/SkeletonWrapper';
-import { Select, SelectContent, SelectItem, SelectValue } from '@/components/ui/select';
+import { Select, SelectContent, SelectTrigger, SelectItem, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Period, TimeFrame } from '@/lib/types'
-import { SelectTrigger } from '@radix-ui/react-select';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react'
 
@@ -61,7 +60,7 @@ function YearSelector({period, setPeriod, years}: {
             });
         }}>
             <SelectTrigger className='w-[200px]'>
-                <SelectValue/>
+                <SelectValue />
             </SelectTrigger>
             <SelectContent>
                 {years.map((year) => (
