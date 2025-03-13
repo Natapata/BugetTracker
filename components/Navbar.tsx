@@ -25,7 +25,7 @@ export default Navbar;
 const items = [
   { label: "Dashboard", link: "/" },
   { label: "Transactions", link: "/transactions" },
-  { label: "Mangage", link: "/manage" },
+  { label: "Manage", link: "/manage" },
 ];
 
 function MobilNavbar() {

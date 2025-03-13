@@ -19,6 +19,7 @@
 
 # prisma
 prisma/*.db
+prisma/dev.db
 
 
 # production
