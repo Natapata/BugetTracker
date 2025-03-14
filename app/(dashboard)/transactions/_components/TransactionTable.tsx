@@ -38,7 +38,7 @@ interface Props{
     to: Date,
 }
 
-const emptyData: any[] = [];
+const emptyData: TransactionHistoryRow[] = [];
 
 type TransactionHistoryRow = GetTransactionsHistoryResponseType[0];
 
@@ -96,7 +96,7 @@ const columns: ColumnDef<TransactionHistoryRow>[] = [{
       <p className={cn('text-md rounded-lg bg-gray-400/3 p-2 text-center font-medium'
         , row.original.type === 'income' ? ' text-emerald-500' : ' text-red-500' )}
       >
-        {row.original.type === 'income' ? row.original.formattedAmout :  `-${row.original.formattedAmout}` }
+        {row.original.type === 'income' ? row.original.formattedAmount :  `-${row.original.formattedAmount}` }
       </p>
     ),
   },
