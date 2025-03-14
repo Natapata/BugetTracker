@@ -102,7 +102,7 @@ function CreateCategoryDialog({type, successCallback, trigger}: Props) {
                             <FormItem>
                                 <FormLabel>Name</FormLabel>
                                 <FormControl>
-                                    <Input {...field} placeholder={"Category"}  />
+                                    <Input {...field} placeholder={"Category"} value={field.value ?? ""}  />
                                 </FormControl>
                                 <FormDescription>
                                     This is how your category will be named

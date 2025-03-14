@@ -27,12 +27,12 @@ function page() {
         </div>
       </div>  
     </div>
-    <div className="container flex flex-col gap-4 p-4">
+    <div className="container mx-auto flex flex-col w-full justify-between  gap-4 p-4">
       <Card className='bg-gray-300/2'>
         <CardHeader>
           <CardTitle>Currency</CardTitle>
           <CardDescription>
-            Set your default currency for transactions
+            Set your default currency for transactions (Amounts will not be converted)
           </CardDescription>
         </CardHeader>
         <CardContent>

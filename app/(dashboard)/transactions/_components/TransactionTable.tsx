@@ -26,10 +26,12 @@ import SkeletonWrapper from '@/components/SkeletonWrapper';
 import { DataTableColumnHeader } from '@/components/datatable/ColumnHeader';
 import { cn } from '@/lib/utils';
 import { DataTableFacetedFilter } from '@/components/datatable/FacetedFilters';
-import { ArrowDownLeft, ArrowUpRight, DownloadIcon } from 'lucide-react';
+import { ArrowDownLeft, ArrowUpRight, DownloadIcon, MoreHorizontal, TrashIcon } from 'lucide-react';
 import { DataTableViewOptions } from '@/components/datatable/ColumnToggle';
 import { Button } from '@/components/ui/button';
 import {download, generateCsv, mkConfig} from 'export-to-csv'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import DeleteTransactionDialog from './DeleteTransactionDialog';
 
 interface Props{
     from: Date,
@@ -109,6 +111,13 @@ const columns: ColumnDef<TransactionHistoryRow>[] = [{
       </div>
     ),
   },
+  {
+    id: 'actions',
+    enableHiding: false,
+    cell: ({row}) => (
+      <RowActions transaction={row.original} />
+    ),
+  }
 ];
 
 const csvConfig = mkConfig({
@@ -263,3 +272,29 @@ function TransactionTable({from, to}: Props) {
 }
 
 export default TransactionTable
+
+function RowActions({transaction} : {transaction : TransactionHistoryRow}){
+  const [showDelteDialog, setShowDeleteDialog] = useState(false);
+
+  return(
+    <>
+    <DeleteTransactionDialog open={showDelteDialog} setOpen={setShowDeleteDialog} transactionId={transaction.id} />
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant='ghost' className='h-8 w-8 p-0'>
+          <span className="sr-only">Open menu</span>
+          <MoreHorizontal className='h-4 w-4'/>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align='end'>
+        <DropdownMenuLabel>Actions</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem className='flex items-center gap-2 hover:bg-red-500/20 ' onSelect={() => {setShowDeleteDialog(prev => !prev)}}>
+          <TrashIcon className='h-4 w-4 text-muted-foreground group-hover:text-red-500' />
+          Delete
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+    </>
+  )
+}
