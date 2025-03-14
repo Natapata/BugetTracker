@@ -1,6 +1,6 @@
 "use client"
 import { Category } from '@prisma/client';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import React, { ReactNode } from 'react'
 import { DeleteCategory } from '../_actions/categories';
 import { toast } from 'sonner';
@@ -37,7 +37,7 @@ function DeleteCategoryDialog({category, trigger}: Props) {
   return (
     <AlertDialog>
         <AlertDialogTrigger asChild>{trigger}</AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent aria-describedby='Dialog to delete the category.'>
             <AlertDialogHeader>
                 <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                 <AlertDialogDescription>This action can not be undone. This will permanently delete you category</AlertDialogDescription>

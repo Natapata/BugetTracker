@@ -6,9 +6,9 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { TransactionType } from '@/lib/types';
 import { Category } from '@prisma/client';
 import { useQuery } from '@tanstack/react-query';
-import React, { use, useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import CreateCategoryDialog from './CreateCategoryDialog';
-import { Check, ChevronsDownUpIcon, ChevronsUpDownIcon } from 'lucide-react';
+import { Check, ChevronsUpDownIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface Props {

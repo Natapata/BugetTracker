@@ -13,7 +13,6 @@ import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 import { Category } from '@prisma/client';
 import { TrashIcon } from '@radix-ui/react-icons';
-import { DeleteCategory } from '../_actions/categories';
 import DeleteCategoryDialog from '../_components/DeleteCategoryDialog';
 
 function page() {
